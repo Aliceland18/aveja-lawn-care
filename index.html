@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aveja Hall's Lawn Care — Point of Woods, Manassas</title>
+<meta name="description" content="Neighborhood high-schooler cutting grass for $30 a yard. Mow, edge, blow clean. Game-day hustle, all summer." />
+<style>
+  :root{
+    --field:#1f7a33;        /* fresh-cut green */
+    --field-deep:#145226;   /* deep turf */
+    --field-dark:#0f2e18;   /* shadow under the trees */
+    --line:#f4f7ee;         /* chalk line */
+    --cream:#f6f8f0;
+    --ink:#14210f;
+    --ink-soft:#46563c;
+    --gold:#e8b13b;         /* trophy / sun */
+    --card:#ffffff;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Helvetica Neue",-apple-system,system-ui,"Segoe UI",Arial,sans-serif;
+    background:var(--cream); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  h1,h2,.display{font-weight:800;letter-spacing:-0.02em;line-height:1.02}
+  .kicker{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+
+  /* ---- Hero: a turf field with chalk yard-lines ---- */
+  .hero{
+    position:relative; color:var(--line); overflow:hidden;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 119px, rgba(244,247,238,.10) 119px 121px),
+      linear-gradient(160deg, var(--field) 0%, var(--field-deep) 55%, var(--field-dark) 100%);
+  }
+  .hero::after{ /* sunlight from the top corner */
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(120% 80% at 88% -10%, rgba(232,177,59,.28), transparent 55%);
+  }
+  .hero .wrap{position:relative; z-index:1; padding:64px 20px 72px}
+  .hero .kicker{color:#bfe6c6}
+  .hero h1{
+    font-size:clamp(3.4rem,16vw,7rem); margin:14px 0 0; text-transform:uppercase;
+    text-shadow:0 2px 0 rgba(0,0,0,.18);
+  }
+  .tag{font-size:clamp(1.25rem,4.5vw,1.9rem); font-weight:800; margin-top:6px}
+  .tag b{color:var(--gold)}
+  .lede{max-width:46ch; margin-top:16px; color:#e7f1e3; font-size:1.05rem}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:28px}
+  .btn{
+    display:inline-flex; align-items:center; gap:.5em; font-weight:800; font-size:1.05rem;
+    padding:15px 26px; border-radius:999px; text-decoration:none; transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-go{background:var(--gold); color:#3a2a05; box-shadow:0 8px 22px rgba(0,0,0,.25)}
+  .btn-ghost{background:rgba(244,247,238,.12); color:var(--line); border:2px solid rgba(244,247,238,.55)}
+  .price-badge{
+    display:inline-grid; place-items:center; margin-left:auto; text-align:center;
+    width:108px;height:108px;border-radius:50%; background:var(--line); color:var(--field-deep);
+    box-shadow:0 10px 26px rgba(0,0,0,.3); transform:rotate(-7deg);
+  }
+  .price-badge .n{font-size:2.5rem;font-weight:800;line-height:.9}
+  .price-badge .u{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+
+  /* ---- Sections ---- */
+  section{padding:56px 0}
+  .eyebrow{color:var(--field);}
+  h2{font-size:clamp(1.7rem,6vw,2.4rem); margin:8px 0 22px}
+
+  .grid{display:grid; gap:16px; grid-template-columns:1fr}
+  @media(min-width:640px){.grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--card); border:1px solid #e6ebdd; border-radius:var(--radius); padding:22px 22px}
+  .card h3{font-size:1.12rem; font-weight:800; display:flex; align-items:center; gap:.5em}
+  .card p{color:var(--ink-soft); margin-top:6px; font-size:.97rem}
+  .ptag{display:inline-block; background:var(--field); color:#fff; font-weight:800; font-size:1.3rem; padding:3px 14px; border-radius:999px; margin-bottom:10px}
+  .check{color:var(--field); font-weight:900}
+
+  .why{background:var(--ink); color:var(--cream)}
+  .why h2{color:#fff}
+  .why .eyebrow{color:var(--gold)}
+  .why p{color:#cfd8c6; max-width:60ch}
+  .why .pill{display:inline-block; margin:14px 8px 0 0; padding:8px 14px; border-radius:999px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); font-weight:700; font-size:.9rem}
+
+  .steps{counter-reset:s}
+  .step{display:flex; gap:16px; align-items:flex-start; padding:14px 0}
+  .step::before{counter-increment:s; content:counter(s); flex:0 0 auto;
+    width:40px;height:40px;border-radius:50%;background:var(--field);color:#fff;
+    display:grid;place-items:center;font-weight:800;font-size:1.1rem}
+  .step h3{font-size:1.05rem;font-weight:800}
+  .step p{color:var(--ink-soft);font-size:.96rem}
+
+  /* ---- Contact band ---- */
+  .book{background:linear-gradient(135deg,var(--field),var(--field-deep)); color:var(--line); text-align:center}
+  .book h2{color:#fff}
+  .book .num{font-size:clamp(1.8rem,7vw,2.8rem); font-weight:800; letter-spacing:-.01em; margin:4px 0}
+  .book .num a{color:var(--gold); text-decoration:none}
+  .book .pay{color:#dff0db; margin-top:10px}
+  .fill{background:rgba(232,177,59,.18); border-bottom:2px dashed var(--gold); padding:0 .25em; border-radius:3px 3px 0 0}
+
+  footer{background:var(--ink-dark,#0f2e18); color:#9fb39a; text-align:center; padding:30px 20px; font-size:.9rem}
+  footer b{color:var(--cream)}
+
+  /* ---- Sticky mobile book bar ---- */
+  .sticky{position:fixed; left:0; right:0; bottom:0; z-index:40; padding:10px 14px;
+    background:var(--ink); border-top:3px solid var(--gold);
+    display:flex; gap:10px; align-items:center; justify-content:space-between}
+  .sticky .lbl{color:var(--line); font-weight:800}
+  .sticky .lbl small{display:block; color:#9fb39a; font-weight:600; font-size:.72rem}
+  .sticky a{background:var(--gold); color:#3a2a05; font-weight:800; padding:11px 18px; border-radius:999px; text-decoration:none}
+  @media(min-width:780px){.sticky{display:none}}
+  body{padding-bottom:76px}
+  @media(min-width:780px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">Point of Woods &middot; Manassas, VA &middot; Summer 2026</p>
+      <h1>Aveja</h1>
+      <p class="tag">Cuts grass clean. <b>$30 a yard.</b></p>
+      <p class="lede">Your neighborhood high-schooler, bringing game-day hustle to your lawn all summer. Plays linebacker <em>and</em> running back, so he shows up, works hard, and finishes the job.</p>
+      <div class="cta-row">
+        <a class="btn btn-go" href="sms:+15716021043">Text to book &rarr;</a>
+        <a class="btn btn-ghost" href="#what">What you get</a>
+        <span class="price-badge"><span><span class="n">$30</span><span class="u">a yard</span></span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHAT YOU GET -->
+  <section id="what">
+    <div class="wrap">
+      <p class="kicker eyebrow">Pick what you need</p>
+      <h2>Services &amp; prices</h2>
+      <div class="grid grid-3">
+        <div class="card"><div class="ptag">$30</div><h3>Full mow</h3><p>Front and back, cut even and clean, then blown off the walks and driveway. The main event.</p></div>
+        <div class="card"><div class="ptag">$20</div><h3>Trimming</h3><p>String-trimmed around fences, trees, and the tight spots a mower can't reach.</p></div>
+        <div class="card"><div class="ptag">$10</div><h3>Edging</h3><p>Crisp lines along the sidewalks, driveway, and beds. The detail that makes it look pro.</p></div>
+      </div>
+      <p style="margin-top:18px;color:var(--ink-soft)">Get all three for a full sharp cleanup, or just the mow. Want the clippings bagged? Just ask.</p>
+    </div>
+  </section>
+
+  <!-- WHY AVEJA -->
+  <section class="why">
+    <div class="wrap">
+      <p class="kicker eyebrow">Why hire the kid next door</p>
+      <h2>Football work ethic, on your lawn</h2>
+      <p>Aveja plays both sides of the ball on the high-school team, linebacker on defense and running back on offense. Two-way players don't take plays off, and he brings the same to every yard: on time, every week, and it gets done right. He's working this summer to save up, so he's earning your repeat business one clean cut at a time.</p>
+      <div>
+        <span class="pill">&#127944; Linebacker &amp; running back</span>
+        <span class="pill">&#128197; Weekly or one-time</span>
+        <span class="pill">&#128176; Saving up this summer</span>
+        <span class="pill">&#128205; Right here in Point of Woods</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="wrap">
+      <p class="kicker eyebrow">Easy as it gets</p>
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step"><div><h3>Text or email your address</h3><p>Say when you'd like it cut, one time or every week.</p></div></div>
+        <div class="step"><div><h3>He swings by and cuts</h3><p>Mow, edge, blow it clean. You don't have to be home.</p></div></div>
+        <div class="step"><div><h3>Pay how you like</h3><p>Cash, Venmo @AvejaHall, or Cash App $Avejahall20. Happy with it? Lock in a weekly spot.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="wrap">
+      <p class="kicker">Book Aveja</p>
+      <h2>Lawn looking long? Let's fix that.</h2>
+      <p class="num">Text <a href="sms:+15716021043">(571) 602-1043</a></p>
+      <p class="pay">or email <a href="mailto:avejahall10@gmail.com" style="color:var(--gold);text-decoration:none">avejahall10@gmail.com</a></p>
+      <p class="pay">Cash &middot; Venmo @AvejaHall &middot; Cash App $Avejahall20</p>
+      <p class="pay" style="margin-top:6px">Out cutting weekdays 12-3:35pm &amp; weekends 1-6:30pm &middot; Point of Woods &amp; nearby Manassas</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Aveja Hall's Lawn Care</b> &middot; Point of Woods, Manassas VA &middot; Summer 2026</p>
+    <p>Hire the kid who works. &#127944;</p>
+  </footer>
+
+  <!-- sticky mobile book bar -->
+  <div class="sticky">
+    <span class="lbl">Mow $30<small>trim $20 &middot; edge $10</small></span>
+    <a href="sms:+15716021043">Text to book</a>
+  </div>
+
+</body>
+</html>
