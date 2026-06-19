@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aveja Hall's Lawn Care — Point of Woods, Manassas</title>
+<title>Aveja Lawn Service — Point of Woods, Manassas</title>
 <meta name="description" content="Neighborhood high-schooler cutting grass for $30 a yard. Mow, edge, blow clean. Game-day hustle, all summer." />
 <style>
   :root{
@@ -114,20 +114,45 @@
   @media(min-width:780px){.sticky{display:none}}
   body{padding-bottom:76px}
   @media(min-width:780px){body{padding-bottom:0}}
+
+  /* ---- Hero two-column + brand art ---- */
+  .hero-grid{display:grid; gap:30px; align-items:center; grid-template-columns:1fr}
+  @media(min-width:820px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+  .logo-chip{display:inline-block; background:#fff; padding:10px 13px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.20); margin-bottom:18px}
+  .logo-chip img{display:block; height:62px; width:auto}
+  .hero-art{position:relative; justify-self:center}
+  .hero-art>img{width:100%; max-width:400px; border-radius:22px; display:block; border:5px solid rgba(244,247,238,.9); box-shadow:0 22px 46px rgba(0,0,0,.4)}
+  .hero-art .price-badge{position:absolute; right:-8px; bottom:-16px; margin:0}
+
+  /* ---- Footer brand + QR + credit ---- */
+  .foot-grid{display:flex; flex-wrap:wrap; gap:26px; align-items:center; justify-content:space-between; max-width:920px; margin:0 auto; text-align:left}
+  .foot-brand .logo-chip{margin-bottom:12px}
+  .foot-brand p{margin:2px 0}
+  .foot-qr{display:flex; flex-direction:column; align-items:center; gap:7px}
+  .foot-qr img{width:122px; height:122px; background:#fff; padding:8px; border-radius:12px}
+  .foot-qr span{font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:#9fb39a}
+  .credit{max-width:920px; margin:24px auto 0; padding-top:16px; border-top:1px solid rgba(255,255,255,.12); font-size:.8rem; color:#86997f; text-align:center}
+  .credit a{color:var(--gold); text-decoration:none}
 </style>
 </head>
 <body>
 
   <!-- HERO -->
   <header class="hero">
-    <div class="wrap">
-      <p class="kicker">Point of Woods &middot; Manassas, VA &middot; Summer 2026</p>
-      <h1>Aveja</h1>
-      <p class="tag">Cuts grass clean. <b>$30 a yard.</b></p>
-      <p class="lede">Your neighborhood high-schooler, bringing game-day hustle to your lawn all summer. Plays linebacker <em>and</em> running back, so he shows up, works hard, and finishes the job.</p>
-      <div class="cta-row">
-        <a class="btn btn-go" href="sms:+15716021043">Text to book &rarr;</a>
-        <a class="btn btn-ghost" href="#what">What you get</a>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="logo-chip"><img src="aveja-logo.png" alt="Aveja Lawn Service logo" /></span>
+        <p class="kicker">Point of Woods &middot; Manassas, VA &middot; Summer 2026</p>
+        <h1>Aveja</h1>
+        <p class="tag">Cuts grass clean. <b>$30 a yard.</b></p>
+        <p class="lede">Your neighborhood high-schooler, bringing game-day hustle to your lawn all summer. Plays for the Mustangs at linebacker <em>and</em> running back, so he shows up, works hard, and finishes the job.</p>
+        <div class="cta-row">
+          <a class="btn btn-go" href="sms:+15716021043">Text to book &rarr;</a>
+          <a class="btn btn-ghost" href="#what">Services &amp; prices</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="aveja-hero.jpg" alt="Aveja in his Mustangs jersey, ready to cut your grass" />
         <span class="price-badge"><span><span class="n">$30</span><span class="u">a yard</span></span></span>
       </div>
     </div>
@@ -152,9 +177,9 @@
     <div class="wrap">
       <p class="kicker eyebrow">Why hire the kid next door</p>
       <h2>Football work ethic, on your lawn</h2>
-      <p>Aveja plays both sides of the ball on the high-school team, linebacker on defense and running back on offense. Two-way players don't take plays off, and he brings the same to every yard: on time, every week, and it gets done right. He's working this summer to save up, so he's earning your repeat business one clean cut at a time.</p>
+      <p>Aveja plays both sides of the ball for the Mustangs, linebacker on defense and running back on offense. Two-way players don't take plays off, and he brings the same to every yard: on time, every week, and it gets done right. He's working this summer to save up, so he's earning your repeat business one clean cut at a time.</p>
       <div>
-        <span class="pill">&#127944; Linebacker &amp; running back</span>
+        <span class="pill">&#127944; Mustangs &middot; LB &amp; RB</span>
         <span class="pill">&#128197; Weekly or one-time</span>
         <span class="pill">&#128176; Saving up this summer</span>
         <span class="pill">&#128205; Right here in Point of Woods</span>
@@ -188,8 +213,18 @@
   </section>
 
   <footer>
-    <p><b>Aveja Hall's Lawn Care</b> &middot; Point of Woods, Manassas VA &middot; Summer 2026</p>
-    <p>Hire the kid who works. &#127944;</p>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-chip"><img src="aveja-logo.png" alt="Aveja Lawn Service" /></span>
+        <p><b>Aveja Lawn Service</b> &middot; Aveja Hall</p>
+        <p>Point of Woods, Manassas VA &middot; Summer 2026 &middot; Hire the kid who works. &#127944;</p>
+      </div>
+      <div class="foot-qr">
+        <img src="aveja-qr.png" alt="QR code linking to this site" />
+        <span>Scan to open &amp; share</span>
+      </div>
+    </div>
+    <p class="credit">Want a clean site like this for your hustle or business? Built by 4a Nile &mdash; <a href="mailto:jasmal2124@gmail.com">jasmal2124@gmail.com</a></p>
   </footer>
 
   <!-- sticky mobile book bar -->
